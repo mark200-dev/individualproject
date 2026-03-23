@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tools</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            font-size: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h2 {
+            font-size: 40px;
+        }
+
+        h3 {
+            font-size: 28px;
+        }
+
+        input, button {
+            padding: 10px;
+            font-size: 18px;
+            margin: 5px;
+        }
+
+        a {
+            font-size: 22px;
+            text-decoration: none;
+            color: blue;
+            margin: 0 10px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .tool {
+            display: none; /* hide all tools first */
+            margin-top: 20px;
+        }
+    </style>
+
+    <script>
+        function showTool(id) {
+            // Hide all tools
+            let tools = document.querySelectorAll(".tool");
+            tools.forEach(tool => tool.style.display = "none");
+
+            // Show selected tool
+            document.getElementById(id).style.display = "block";
+        }
+    </script>
+</head>
+
+<body>
+
+<h2>Useful Tools</h2>
+
+<a href="Main.html">Home</a>
+
+<br><br>
+
+<!-- Navigation links -->
+<a href="#" onclick="showTool('calculator')">Calculator</a>
+<a href="#" onclick="showTool('bmi')">BMI</a>
+<a href="#" onclick="showTool('zakat')">Zakat</a>
+<a href="#" onclick="showTool('converter')">Converter</a>
+
+<!-- Calculator -->
+<div id="calculator" class="tool">
+    <h3>Calculator</h3>
+    <input type="number" id="num1">
+    <input type="number" id="num2"><br><br>
+
+    <button onclick="add()">+</button>
+    <button onclick="sub()">-</button>
+    <button onclick="mul()">*</button>
+    <button onclick="div()">/</button>
+
+    <p id="calcResult"></p>
+</div>
+
+<!-- BMI -->
+<div id="bmi" class="tool">
+    <h3>BMI Checker</h3>
+    <input type="number" id="weight" placeholder="Weight (kg)">
+    <input type="number" id="height" placeholder="Height (m)"><br><br>
+
+    <button onclick="bmi()">Check BMI</button>
+
+    <p id="bmiResult"></p>
+</div>
+
+<!-- Zakat -->
+<div id="zakat" class="tool">
+    <h3>Zakat Calculator</h3>
+    <input type="number" id="income" placeholder="Income"><br><br>
+
+    <button onclick="zakat()">Calculate</button>
+
+    <p id="zakatResult"></p>
+</div>
+
+<!-- Converter -->
+<div id="converter" class="tool">
+    <h3>Unit Converter</h3>
+    <input type="number" id="value"><br><br>
+
+    <button onclick="cmToM()">cm to m</button>
+    <button onclick="mToCm()">m to cm</button>
+    <button onclick="mToKm()">m to km</button>
+    <button onclick="kmToM()">km to m</button>
+
+    <p id="convertResult"></p>
+</div>
+
+<!-- Scripts -->
+<script src="js/calculator.js"></script>
+<script src="js/bmi.js"></script>
+<script src="js/zakat.js"></script>
+<script src="js/converter.js"></script>
+
+</body>
+</html>
